@@ -18,4 +18,8 @@ public class ParcelLocker {
 
         }
     }
+
+    public void removeAll() {
+        packages.removeAll(packages);
+    }
 }

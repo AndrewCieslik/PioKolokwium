@@ -3,6 +3,8 @@ public class Main {
         Parcel package1 = new Parcel("PPP-0000C", 2000);
         ParcelLocker locker = new ParcelLocker();
         locker.addParcel(package1);
+        locker.removeAll();
         locker.listParcel();
+
     }
 }
