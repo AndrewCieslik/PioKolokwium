@@ -1,9 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Parcel {
     private String code;
     private int weight;
 
     public Parcel(String code, int weight) {
-        this.code = code;
+
+        if(code != null && code.matches("^[A-Z]{3}-[0-9]{4}C$")) {
+            this.code = code;
+        } else {
+            throw new IllegalArgumentException("Wrong code (ex. XXX-0000C)");
+        }
+
         this.weight = weight;
     }
 
