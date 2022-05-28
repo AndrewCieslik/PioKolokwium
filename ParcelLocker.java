@@ -6,7 +6,11 @@ public class ParcelLocker {
     private List<Parcel> packages = new ArrayList();
 
     public void addParcel(Parcel newPackage){
-        packages.add(newPackage);
+        if (newPackage != null){
+            packages.add(newPackage);
+        } else {
+            throw new NullPointerException("Empty package");
+        }
     }
 
     public void listParcel() {
