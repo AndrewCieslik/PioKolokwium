@@ -1,4 +1,3 @@
-import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class ParcelLocker {
         if (newPackage != null){
             packages.add(newPackage);
         } else {
-            throw new NullPointerException("Empty package");
+            throw new NullPointerException("No parcel");
         }
     }
 
@@ -18,9 +17,19 @@ public class ParcelLocker {
         for (Parcel parcel : packages) {
             System.out.println(parcel.getCode());
             sum += parcel.getWeight();
-            System.out.println("Summary weigth: " + sum);
-
         }
+        System.out.println("Summary weight: " + sum);
+    }
+
+    public void removeParcel(String code){
+        int i = -1;
+        for (Parcel parcel : packages) {
+            i++;
+            if (code.equals(parcel.getCode())){
+                break;
+            }
+        }
+        packages.remove(packages.remove(i));
     }
 
     public void removeAll() {
