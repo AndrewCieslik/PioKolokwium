@@ -23,10 +23,16 @@ public class ParcelLocker {
     }
 
     public void removeParcel(String code) {
-        for (Parcel parcel : packages) {
+        int countRemovedParcels = 0;
+
+        for (Parcel parcel : packages) {                     //ALTERNATIVELY: packages.removeIf( (Parcel parcel) -> parcel.getCode().equals(code));
             if(code.equals(parcel.getCode())){
                 packages.remove(parcel);
+                countRemovedParcels++;
             }
+        }
+        if (countRemovedParcels == 0) {
+            throw new IllegalArgumentException("Parcel doesn't exist");
         }
     }
 
