@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ParcelLocker {
@@ -21,15 +22,12 @@ public class ParcelLocker {
         System.out.println("Summary weight: " + sum);
     }
 
-    public void removeParcel(String code){
-        int i = -1;
+    public void removeParcel(String code) {
         for (Parcel parcel : packages) {
-            i++;
-            if (code.equals(parcel.getCode())){
-                break;
+            if(code.equals(parcel.getCode())){
+                packages.remove(parcel);
             }
         }
-        packages.remove(packages.remove(i));
     }
 
     public void removeAll() {
